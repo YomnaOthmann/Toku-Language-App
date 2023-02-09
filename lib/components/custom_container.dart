@@ -16,7 +16,7 @@ class CategoryContainer extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         horizontal: 20.0,
       ),
-      alignment: Alignment.centerRight,
+      alignment: Alignment.centerLeft,
       color: backgroundColor,
       width: double.infinity,
       height: 60,
