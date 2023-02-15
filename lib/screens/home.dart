@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toku/components/custom_container.dart';
+import 'package:toku/constants/colors.dart';
+import 'package:toku/screens/numbers.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -7,35 +9,46 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfffef6d8),
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: const Color(0xff4A322B),
+        backgroundColor: AppColors.appBarColor,
         title: const Text(
           "Toku",
           style: TextStyle(
-            fontSize: 32,
+            fontSize: 28,
             fontWeight: FontWeight.w600,
             color: Colors.white,
           ),
         ),
       ),
       body: Column(
-        children: const [
+        children: [
           CategoryContainer(
-            backgroundColor: Color(0xffEF9235),
+            backgroundColor: AppColors.orange,
             title: "Numbers",
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NumbersPage(),
+                ),
+              );
+            },
           ),
           CategoryContainer(
-            backgroundColor: Color(0xff538033),
+            backgroundColor: AppColors.green,
             title: "Family Members",
+            onTap: () {},
           ),
           CategoryContainer(
-            backgroundColor: Color(0xff7E3FA3),
+            backgroundColor: AppColors.purple,
             title: "Colors",
+            onTap: () {},
           ),
           CategoryContainer(
-            backgroundColor: Color(0xff48A5CC),
+            backgroundColor: AppColors.blue,
             title: "Phrases",
+            onTap: () {},
           ),
         ],
       ),
