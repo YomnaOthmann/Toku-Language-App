@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:toku/components/custom_container.dart';
+import 'package:toku/components/custom_category_container.dart';
 import 'package:toku/constants/colors.dart';
+import 'package:toku/screens/colors.dart';
+import 'package:toku/screens/family_members.dart';
 import 'package:toku/screens/numbers.dart';
+import 'package:toku/screens/phrases.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -38,17 +41,29 @@ class HomePage extends StatelessWidget {
           CategoryContainer(
             backgroundColor: AppColors.green,
             title: "Family Members",
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const FamilyMembersPage(),),);
+            },
           ),
           CategoryContainer(
             backgroundColor: AppColors.purple,
             title: "Colors",
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ColorsPage(),));
+            },
           ),
           CategoryContainer(
             backgroundColor: AppColors.blue,
             title: "Phrases",
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, 
+              MaterialPageRoute(builder: (context)=> PhrasesPage()));
+            },
           ),
         ],
       ),

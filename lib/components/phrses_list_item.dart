@@ -1,14 +1,14 @@
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
+
 import '../models/model_item.dart';
 
-
-class ListItem extends StatelessWidget {
-  final Item item;
+class PhrasesListItem extends StatelessWidget {
+  final Item phrase;
   final Color color;
-  const ListItem({
-    super.key, required this.item, required this.color,
+  const PhrasesListItem({
+    super.key, required this.phrase, required this.color,
   });
 
   @override
@@ -22,16 +22,6 @@ class ListItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Container(
-            padding: const EdgeInsets.all(5.0),
-            alignment: Alignment.center,
-            color: AppColors.background,
-            child: Image.asset(
-              item.image!,
-              height: 90,
-              width: 90,
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
@@ -39,9 +29,9 @@ class ListItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  item.enName,
+                  phrase.enName,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     color: Colors.white,
                   ),
                 ),
@@ -49,9 +39,9 @@ class ListItem extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  item.jpName,
+                  phrase.jpName,
                   style: const TextStyle(
-                      fontSize: 18,
+                      fontSize: 16,
                       color: Colors.white,
                       fontWeight: FontWeight.bold),
                 ),
@@ -64,7 +54,7 @@ class ListItem extends StatelessWidget {
           IconButton(
               onPressed: () {
                 try {
-                  AudioPlayer().play(AssetSource(item.soundFile));
+                  AudioPlayer().play(AssetSource(phrase.soundFile));
                 } catch (error) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
